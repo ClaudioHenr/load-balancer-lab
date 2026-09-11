@@ -1,0 +1,36 @@
+services:
+  lb-01:
+    build: ./01-round-robin/load-balancer
+    ports:
+      - "8001:3000"
+    environment:
+      PORT: 3000
+      BACKENDS: http://api-01-a:3001,http://api-01-b:3002,http://api-01-c:3003
+    depends_on:
+      - api-01-a
+      - api-01-b
+      - api-01-c
+
+  api-01-a:
+    build: ./shared/sample-api
+    ports:
+      - "3001"
+    environment:
+      PORT: 3001
+    hostname: api-01-a
+
+  api-01-b:
+    build: ./shared/sample-api
+    ports:
+      - "3002"
+    environment:
+      PORT: 3002
+    hostname: api-01-b
+
+  api-01-c:
+    build: ./shared/sample-api
+    ports:
+      - "3003"
+    environment:
+      PORT: 3003
+    hostname: api-01-c
