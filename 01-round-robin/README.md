@@ -51,20 +51,6 @@ npm install
 For a quick local dev run:
 
 ```bash
-cd 01-round-robin/load-balancer
-npm run dev
-```
-
-And in another terminal:
-
-```bash
-cd 01-round-robin/sample-api
-npm run dev
-```
-
-Or, from the project root:
-
-```bash
 docker compose up --build
 ```
 
