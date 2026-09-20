@@ -7,3 +7,6 @@ This lab demonstrates the Least Connections algorithm for distributing traffic a
 Conection: way of comunication
 Request: operation sent throgh the connection
 
+## Lack
+
+Real connections still not implemented, just fake connections
