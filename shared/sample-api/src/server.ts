@@ -4,11 +4,11 @@ const app = express();
 const port = Number(process.env.PORT || 3000);
 
 app.get('/health', (_, res) => {
-  res.json({ status: 'ok', service: '01-round-robin', instance: process.env.HOSTNAME || 'local' });
+  res.json({ status: 'ok', service: 'API', instance: process.env.HOSTNAME || 'local' });
 });
 
 app.get('/api', (_, res) => {
-  res.json({ message: 'Sample backend service, its from api running at ' + (process.env.HOSTNAME || 'local'), module: '01-round-robin' });
+  res.json({ message: 'Sample backend service, its from api running at ' + (process.env.HOSTNAME || 'local'), module: 'API'});
 });
 
 app.listen(port, () => {
