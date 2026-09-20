@@ -1,0 +1,36 @@
+services:
+  lb-01:
+    command: npm run dev:watch
+    volumes:
+      - ./01-round-robin/load-balancer:/app
+      - /app/node_modules
+
+  lb-02:
+    command: npm run dev:watch
+    volumes:
+      - ./02-weighted-round-robin/load-balancer:/app
+      - /app/node_modules
+
+  lb-03:
+    command: npm run dev:watch
+    volumes:
+      - ./03-least-connections/load-balancer:/app
+      - /app/node_modules
+
+  api-01-a:
+    command: npm run dev:watch
+    volumes:
+      - ./shared/sample-api:/app
+      - /app/node_modules
+
+  api-01-b:
+    command: npm run dev:watch
+    volumes:
+      - ./shared/sample-api:/app
+      - /app/node_modules
+
+  api-01-c:
+    command: npm run dev:watch
+    volumes:
+      - ./shared/sample-api:/app
+      - /app/node_modules
