@@ -35,6 +35,18 @@ services:
       - api-01-b
       - api-01-c
 
+  lb-04:
+    build: ./04-least-response-time/load-balancer
+    ports:
+      - "8004:3000"
+    environment:
+      PORT: 3000
+      BACKENDS: http://api-01-a:3001,http://api-01-b:3002,http://api-01-c:3003
+    depends_on:
+      - api-01-a
+      - api-01-b
+      - api-01-c
+
   api-01-a:
     build: ./shared/sample-api
     ports:

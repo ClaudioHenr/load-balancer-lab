@@ -17,6 +17,12 @@ services:
       - ./03-least-connections/load-balancer:/app
       - /app/node_modules
 
+  lb-04:
+    command: npm run dev:watch
+    volumes:
+      - ./04-least-response-time/load-balancer:/app
+      - /app/node_modules
+
   api-01-a:
     command: npm run dev:watch
     volumes:
