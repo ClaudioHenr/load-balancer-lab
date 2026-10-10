@@ -59,6 +59,18 @@ services:
       - api-01-b
       - api-01-c
 
+  lb-06:
+    build: ./06-ip-hash/load-balancer
+    ports:
+      - "8006:3000"
+    environment:
+      PORT: 3000
+      BACKENDS: http://api-01-a:3001,http://api-01-b:3002,http://api-01-c:3003
+    depends_on:
+      - api-01-a
+      - api-01-b
+      - api-01-c
+
   api-01-a:
     build: ./shared/sample-api
     ports:

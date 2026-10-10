@@ -29,6 +29,12 @@ services:
       - ./05-random/load-balancer:/app
       - /app/node_modules
 
+  lb-06:
+    command: npm run dev:watch
+    volumes:
+      - ./06-ip-hash/load-balancer:/app
+      - /app/node_modules
+
   api-01-a:
     command: npm run dev:watch
     volumes:
